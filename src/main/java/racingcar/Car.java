@@ -1,30 +1,21 @@
 package racingcar;
+
 import camp.nextstep.edu.missionutils.Randoms;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class Car {
+    static List<Car> carList = new ArrayList<>();
     String name;
     int distance = 0;
-    Boolean winner = false;
-    static ArrayList<Car> carList = new ArrayList<>();
 
-    public Car() { }
+    public Car() {
+    }
 
     public Car(String name) {
         this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getDistance() {
-        return distance;
-    }
-
-    public Boolean getWinner() {
-        return winner;
     }
 
     public static void register(String[] nameList) {
@@ -49,5 +40,33 @@ public class Car {
             System.out.println(result);
         }
         System.out.println();
+    }
+
+    public static void printWinners() {
+        List<Car> winners = new ArrayList<>();
+        int maxDistance = carList.stream()
+                .mapToInt(Car::getDistance)
+                .max()
+                .orElse(0);
+
+        for (Car car : carList) {
+            if (car.getDistance() == maxDistance) {
+                winners.add(car);
+            }
+        }
+
+        String winnerNames = winners.stream()
+                .map(Car::getName)
+                .collect(Collectors.joining(", "));
+
+        System.out.println("최종 우승자 : " + winnerNames);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public int getDistance() {
+        return distance;
     }
 }
