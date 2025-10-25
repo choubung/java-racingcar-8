@@ -5,20 +5,24 @@ import camp.nextstep.edu.missionutils.Console;
 public class Application {
     public static void main(String[] args) {
         System.out.println("경주할 자동차 이름을 입력하세요.(이름은 쉼표(,) 기준으로 구분)");
-        try {
-            String[] nameList = Console.readLine().replace(" ", "").split(",");
-            Car.register(nameList);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        String[] nameList = Console.readLine().replace(" ", "").split(",");
+        Car.register(nameList);
 
         System.out.println("시도할 횟수는 몇 회인가요?");
-        int rounds = Integer.parseInt(Console.readLine());
+        try {
+            int rounds = Integer.parseInt(Console.readLine());
 
-        System.out.println("실행 결과");
-        while (rounds-- > 0) {
-            Car.forward();
-            Car.printRoundResult();
+            if (rounds <= 0) {
+                throw new Exception();
+            }
+
+            System.out.println("실행 결과");
+            while (rounds-- > 0) {
+                Car.forward();
+                Car.printRoundResult();
+            }
+        } catch (Exception e) {
+            throw new IllegalArgumentException("1 이상의 정수를 입력해야 합니다.");
         }
 
         Car.printWinners();
