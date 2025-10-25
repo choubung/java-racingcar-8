@@ -19,7 +19,19 @@ public class Car {
     }
 
     public static void register(String[] nameList) {
+        if (nameList.length == 0) {
+            throw new IllegalArgumentException("자동차는 1대 이상 입력되어야 합니다.");
+        }
+
         for (String name : nameList) {
+            if (!name.matches("^[a-zA-Z0-9가-힣]*$")) {
+                throw new IllegalArgumentException("이름은 한글, 영문자, 숫자만 사용할 수 있습니다.");
+            }
+
+            if (name.length() > 5) {
+                throw new IllegalArgumentException("자동차의 이름은 5자 이하여야 합니다.");
+            }
+
             carList.add(new Car(name));
         }
     }
