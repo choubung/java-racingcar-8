@@ -1,18 +1,18 @@
 package racingcar;
+import camp.nextstep.edu.missionutils.Randoms;
+
+import java.util.ArrayList;
 
 public class Car {
     String name;
     int distance = 0;
     Boolean winner = false;
-    static int times;
+    static ArrayList<Car> cars = new ArrayList<>();
 
     public Car() { }
+
     public Car(String name) {
         this.name = name;
-    }
-
-    public static void setTimes(int times) {
-        Car.times = times;
     }
 
     public String getName() {
@@ -25,5 +25,11 @@ public class Car {
 
     public Boolean getWinner() {
         return winner;
+    }
+
+    public static void register(String[] nameList) {
+        for (String name : nameList) {
+            cars.add(new Car(name));
+        }
     }
 }
