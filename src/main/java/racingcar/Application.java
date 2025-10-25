@@ -11,8 +11,8 @@ public class Application {
         Car.register(nameList);
 
         System.out.println("시도할 횟수는 몇 회인가요?");
-        int times = Integer.parseInt(Console.readLine());
-        while (times-- > 0) {
+        int rounds = Integer.parseInt(Console.readLine());
+        while (rounds-- > 0) {
             Car.forward();
         }
     }
