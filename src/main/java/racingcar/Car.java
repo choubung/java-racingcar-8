@@ -7,7 +7,7 @@ public class Car {
     String name;
     int distance = 0;
     Boolean winner = false;
-    static ArrayList<Car> cars = new ArrayList<>();
+    static ArrayList<Car> carList = new ArrayList<>();
 
     public Car() { }
 
@@ -29,12 +29,12 @@ public class Car {
 
     public static void register(String[] nameList) {
         for (String name : nameList) {
-            cars.add(new Car(name));
+            carList.add(new Car(name));
         }
     }
 
     public static void forward() {
-        for (Car car : cars) {
+        for (Car car : carList) {
             int randomNum = Randoms.pickNumberInRange(0, 9);
             if (randomNum >= 4) {
                 car.distance++;
@@ -43,7 +43,7 @@ public class Car {
     }
 
     public static void printRoundResult() {
-        for (Car car : cars) {
+        for (Car car : carList) {
             StringBuilder result = new StringBuilder();
             result.append(car.getName()).append(" : ").append("-".repeat(car.getDistance()));
             System.out.println(result);
