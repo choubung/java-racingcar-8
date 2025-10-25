@@ -32,4 +32,13 @@ public class Car {
             cars.add(new Car(name));
         }
     }
+
+    public static void forward() {
+        for (Car car : cars) {
+            int randomNum = Randoms.pickNumberInRange(0, 9);
+            if (randomNum >= 4) {
+                car.distance++;
+            }
+        }
+    }
 }
