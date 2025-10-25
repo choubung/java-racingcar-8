@@ -12,8 +12,10 @@ public class Application {
 
         System.out.println("시도할 횟수는 몇 회인가요?");
         int rounds = Integer.parseInt(Console.readLine());
+        System.out.println("실행 결과");
         while (rounds-- > 0) {
             Car.forward();
+            Car.printRoundResult();
         }
     }
 }

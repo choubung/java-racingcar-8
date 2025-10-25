@@ -41,4 +41,13 @@ public class Car {
             }
         }
     }
+
+    public static void printRoundResult() {
+        for (Car car : cars) {
+            StringBuilder result = new StringBuilder();
+            result.append(car.getName()).append(" : ").append("-".repeat(car.getDistance()));
+            System.out.println(result);
+        }
+        System.out.println();
+    }
 }
