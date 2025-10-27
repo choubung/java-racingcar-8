@@ -8,7 +8,7 @@ public class RacingGame {
     static final int MAX_CAR_NAME_LENGTH = 5;
 
     public RacingGame(String[] nameList) {
-        if (nameList.length == 0) {
+        if (nameList.length == 1 && nameList[0].equals("")) {
             throw new IllegalArgumentException("자동차는 1대 이상 입력되어야 합니다.");
         }
 
@@ -18,8 +18,12 @@ public class RacingGame {
         }
 
         for (String name : nameList) {
+            if (name.equals("")) {
+                throw new IllegalArgumentException("빈 문자열은 이름으로 사용이 불가합니다ㅏ.");
+            }
+
             if (!name.matches("^[a-zA-Z0-9가-힣]*$")) {
-                throw new IllegalArgumentException("이름은 한글, 영문자, 숫자만 사용할 수 있습니다.");
+                throw new IllegalArgumentException("특수문자 사용이 불가합니다. 이름은 한글, 영문자, 숫자만 사용할 수 있습니다.");
             }
 
             if (name.length() > MAX_CAR_NAME_LENGTH) {

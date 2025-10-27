@@ -19,7 +19,7 @@ public class Application {
     }
 
     private static RacingGame startNewGame() {
-        String[] nameList = Console.readLine().replace(" ", "").split(","); // 공백 제거
+        String[] nameList = Console.readLine().replaceAll(" ", "").split(","); // 공백 제거
         return new RacingGame(nameList);
     }
 
