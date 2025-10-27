@@ -19,7 +19,7 @@ public class RacingGame {
 
         for (String name : nameList) {
             if (name.equals("")) {
-                throw new IllegalArgumentException("빈 문자열은 이름으로 사용이 불가합니다ㅏ.");
+                throw new IllegalArgumentException("빈 문자열은 이름으로 사용이 불가합니다.");
             }
 
             if (!name.matches("^[a-zA-Z0-9가-힣]*$")) {
