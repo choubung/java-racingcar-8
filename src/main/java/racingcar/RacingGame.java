@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class RacingGameService {
+public class RacingGame {
     List<Car> carList = new ArrayList<>();
 
-    public RacingGameService(String[] nameList) {
+    public RacingGame(String[] nameList) {
         if (nameList.length == 0) {
             throw new IllegalArgumentException("자동차는 1대 이상 입력되어야 합니다.");
         }
