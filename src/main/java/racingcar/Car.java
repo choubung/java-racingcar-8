@@ -3,9 +3,9 @@ package racingcar;
 import camp.nextstep.edu.missionutils.Randoms;
 
 public class Car {
-    String name;
-    int distance = 0;
-    static final int FORWARD_CONDITION = 4;
+    private String name;
+    private int distance = 0;
+    private static final int FORWARD_CONDITION = 4;
 
     public Car() {
     }

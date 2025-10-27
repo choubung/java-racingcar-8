@@ -12,7 +12,7 @@ public class RacingGame {
             throw new IllegalArgumentException("자동차는 1대 이상 입력되어야 합니다.");
         }
 
-        HashSet<String> nameSet = new HashSet<>(Arrays.asList(nameList));
+        HashSet<String> nameSet = new HashSet<>(Arrays.asList(nameList)); // Set으로 동명이인 여부 판별
         if (nameList.length != nameSet.size()) {
             throw new IllegalArgumentException("동명이인이 있습니다. 구분할 수 있게 입력해주세요.");
         }
@@ -62,7 +62,7 @@ public class RacingGame {
 
         String winnerNames = winners.stream()
                 .map(Car::getName)
-                .collect(Collectors.joining(", "));
+                .collect(Collectors.joining(", ")); // 최종 우승자 스트링 만들기
 
         System.out.println("최종 우승자 : " + winnerNames);
     }
