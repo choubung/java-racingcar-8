@@ -1,7 +1,6 @@
 package racingcar;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class RacingGame {
@@ -10,6 +9,11 @@ public class RacingGame {
     public RacingGame(String[] nameList) {
         if (nameList.length == 0) {
             throw new IllegalArgumentException("자동차는 1대 이상 입력되어야 합니다.");
+        }
+
+        HashSet<String> nameSet = new HashSet<>(Arrays.asList(nameList));
+        if (nameList.length != nameSet.size()) {
+            throw new IllegalArgumentException("동명이인이 있습니다. 구분할 수 있게 입력해주세요.");
         }
 
         for (String name : nameList) {
