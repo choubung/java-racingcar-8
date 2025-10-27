@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 public class RacingGame {
     List<Car> carList = new ArrayList<>();
+    static final int MAX_CAR_NAME_LENGTH = 5;
 
     public RacingGame(String[] nameList) {
         if (nameList.length == 0) {
@@ -21,8 +22,8 @@ public class RacingGame {
                 throw new IllegalArgumentException("이름은 한글, 영문자, 숫자만 사용할 수 있습니다.");
             }
 
-            if (name.length() > 5) {
-                throw new IllegalArgumentException("자동차의 이름은 5자 이하여야 합니다.");
+            if (name.length() > MAX_CAR_NAME_LENGTH) {
+                throw new IllegalArgumentException("자동차의 이름은 "+ MAX_CAR_NAME_LENGTH +"자 이하여야 합니다.");
             }
 
             carList.add(new Car(name));

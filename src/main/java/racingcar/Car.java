@@ -5,6 +5,7 @@ import camp.nextstep.edu.missionutils.Randoms;
 public class Car {
     String name;
     int distance = 0;
+    static final int FORWARD_CONDITION = 4;
 
     public Car() {
     }
@@ -15,7 +16,7 @@ public class Car {
 
     public void forward() {
         int randomNum = Randoms.pickNumberInRange(0, 9);
-        if (randomNum >= 4) {
+        if (randomNum >= FORWARD_CONDITION) {
             this.distance++;
         }
     }
